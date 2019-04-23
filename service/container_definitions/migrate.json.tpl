@@ -1,7 +1,7 @@
 [
   {
-    "name": "sample-rails",
-    "image": "ECRのURL/sample-image:latest",
+    "name": "sample-django",
+    "image": "090442518795.dkr.ecr.ap-northeast-1.amazonaws.com/sample-image:latest",
     "cpu": 200,
     "memory": null,
     "memoryReservation": 600,
@@ -10,10 +10,10 @@
       {
         "hostPort": 0,
         "protocol": "tcp",
-        "containerPort": 3000
+        "containerPort": 8000
       }
     ],
-    "command": ["bundle", "exec", "rails", "db:create", "db:migrate"],
+    "command": ["python3", "manage.py", "migrate"],
     "environment": [
       {
         "name": "RAILS_ENV",
@@ -27,7 +27,7 @@
     "logConfiguration": {
       "logDriver": "awslogs",
       "options": {
-        "awslogs-group": "sample-service",
+        "awslogs-group": "django-service",
         "awslogs-region": "ap-northeast-1",
         "awslogs-stream-prefix": "migration"
       }

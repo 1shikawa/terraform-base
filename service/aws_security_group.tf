@@ -22,7 +22,7 @@ resource "aws_security_group" "instance" {
 }
 
 resource "aws_security_group" "alb" {
-  name        = "sample-rails-alb"
+  name        = "sample-django-alb"
   description = "http and https"
   vpc_id      = "${data.terraform_remote_state.vpc.vpc_id}"
 
